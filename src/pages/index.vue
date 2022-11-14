@@ -5,6 +5,7 @@ import OpSplit from '@/components/OpSplit.vue'
 import OpFlow from '@/core/OpFlow.vue'
 import { compressText, decompressText } from '@0x-jerry/utils'
 import type { Component } from 'vue'
+import OpMatch from '@/components/OpMatch.vue'
 
 const router = useRouter()
 
@@ -28,6 +29,7 @@ const flowData = computed(() => {
 const opMap: Record<string, Component> = {
   input: OpInput,
   split: OpSplit,
+  match: OpMatch,
 }
 
 const opObjects = Object.keys(opMap).map((n) => ({ type: n }))
@@ -92,6 +94,7 @@ useEventListener('keydown', (e) => {
         class="px-2 flex-(~ 1 col) gap-2"
         :model-value="opObjects"
         item-key="type"
+        handle=".op-node--handle"
         :group="{ name: 'op-flow', pull: 'clone', put: false }"
         :clone="cloneNode"
       >

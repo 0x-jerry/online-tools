@@ -1,26 +1,15 @@
 <script lang="ts" setup>
-import { useFlowStore } from '@/core/store'
+import { useNodeContext } from '@/core/hooks'
 import OpNode from './OpNode.vue'
 
-const store = useFlowStore()
-
-const props = defineProps<{
+defineProps<{
   id?: string
-  data?: string
+  data?: any
 }>()
 
-const data = reactive({
-  input: props.data || '',
+const data = useNodeContext({
+  input: '',
 })
-
-watch(
-  () => data.input,
-  (v) => {
-    if (!props.id) return
-
-    store?.update(props.id, v)
-  },
-)
 
 defineExpose({
   exec() {
