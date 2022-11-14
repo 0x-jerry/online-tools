@@ -30,7 +30,7 @@ defineExpose({
 </script>
 
 <template>
-  <OpNode title="Split">
+  <OpNode title="Split" :id="id">
     <input type="text" v-model="data.symbol" />
   </OpNode>
 </template>

@@ -30,7 +30,7 @@ defineExpose({
 </script>
 
 <template>
-  <OpNode title="Input">
+  <OpNode title="Input" :id="id">
     <input type="text" v-model="data.input" />
   </OpNode>
 </template>

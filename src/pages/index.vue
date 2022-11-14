@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import DraggableItem from '@/components/DraggableItem.vue'
+import Draggable from 'vuedraggable'
 import OpInput from '@/components/OpInput.vue'
 import OpSplit from '@/components/OpSplit.vue'
 import OpFlow from '@/core/OpFlow.vue'
 import { compressText, decompressText } from '@0x-jerry/utils'
+import type { Component } from 'vue'
 
 const router = useRouter()
 
@@ -24,10 +25,12 @@ const flowData = computed(() => {
   }
 })
 
-const opMap = {
+const opMap: Record<string, Component> = {
   input: OpInput,
   split: OpSplit,
 }
+
+const opObjects = Object.keys(opMap).map((n) => ({ type: n }))
 
 const flow = ref<InstanceType<typeof OpFlow>>()
 
@@ -49,6 +52,10 @@ function run() {
   })
 }
 
+function cloneNode(value: { type: string }) {
+  return flow.value?.store.create(value.type)
+}
+
 useEventListener('keydown', (e) => {
   if (e.metaKey && e.key === 'Enter') {
     run()
@@ -63,7 +70,7 @@ useEventListener('keydown', (e) => {
         <div class="box-title">
           <span class="flex-1"> Stack </span>
           <span>
-            <span class="cursor-pointer" @click="run">
+            <span class="cursor-pointer color-gray-5 hover:(color-gray-7)" @click="run">
               <i-carbon-play></i-carbon-play>
             </span>
           </span>
@@ -81,11 +88,17 @@ useEventListener('keydown', (e) => {
     </div>
     <div class="w-400px border-(r gray-2) flex-(~ col) gap-2">
       <div class="box-title">Operations</div>
-      <div class="px-2 flex-(~ col) gap-2">
-        <DraggableItem v-for="(value, key) in opMap" format="op" :data="key">
-          <component :is="value"></component>
-        </DraggableItem>
-      </div>
+      <Draggable
+        class="px-2 flex-(~ 1 col) gap-2"
+        :model-value="opObjects"
+        item-key="type"
+        :group="{ name: 'op-flow', pull: 'clone', put: false }"
+        :clone="cloneNode"
+      >
+        <template #item="{ element }">
+          <Component :is="opMap[element.type]"></Component>
+        </template>
+      </Draggable>
     </div>
     <div class="flex-1">
       <div class="box-title">Description</div>

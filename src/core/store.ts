@@ -25,12 +25,23 @@ function createStore(opt?: { data: any }) {
         type,
       }
 
+      return node
+    },
+    add(type: string) {
+      const node = this.create(type)
       data.stack.push(node)
 
       return node
     },
     get(id: string) {
       return data.stack.find((n) => n.id === id)
+    },
+    remove(id: string) {
+      const idx = data.stack.findIndex((n) => n.id === id)
+
+      if (idx >= 0) {
+        data.stack.splice(idx, 1)
+      }
     },
     update<T = any>(id: string, data: T) {
       const o = this.get(id)
