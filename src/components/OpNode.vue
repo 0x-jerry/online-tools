@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <div class="op op-node border-(~ gray-2) rounded-sm">
-    <div class="op-node--title border-(b gray-2) px-2 py-1">
+    <div class="op-node--title op-node--handle border-(b gray-2) px-2 py-1">
       <slot name="title">
         <span>
           {{ title }}
@@ -21,4 +21,8 @@ defineProps<{
   </div>
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+.op-node--handle {
+  @apply cursor-move;
+}
+</style>

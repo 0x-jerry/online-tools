@@ -29,7 +29,13 @@ defineExpose({
 </script>
 
 <template>
-  <Draggable v-model="store.data.stack" item-key="id" class="flex-(~ col) gap-1" group="op-flow">
+  <Draggable
+    v-model="store.data.stack"
+    item-key="id"
+    class="flex-(~ col) gap-1"
+    group="op-flow"
+    handle=".op-node--handle"
+  >
     <template #item="{ element }">
       <div class="relative">
         <div class="absolute right-0 top-0 transform -translate-x-4px translate-y-4px">
