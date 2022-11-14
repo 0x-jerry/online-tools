@@ -4,9 +4,10 @@ import { provideFlowStore } from './store'
 
 const props = defineProps<{
   ops: Record<string, Component>
+  data?: any
 }>()
 
-const store = provideFlowStore()
+const store = provideFlowStore(props.data)
 
 function onDrop(e: DragEvent) {
   const d = e.dataTransfer
@@ -24,6 +25,7 @@ function findComp(type: string) {
 const comps = ref<{ exec(p?: any): any }[]>([])
 
 defineExpose({
+  store,
   run() {
     const value = store.data.stack.reduce((preValue, _, idx) => {
       return comps.value[idx].exec(preValue)
@@ -40,6 +42,7 @@ defineExpose({
       v-for="o in store.data.stack"
       :id="o.id"
       :is="findComp(o.type)"
+      :data="o.data"
       ref="comps"
     ></Component>
   </div>

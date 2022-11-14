@@ -4,6 +4,10 @@ import App from './App.vue'
 import 'normalize.css'
 import './styles/global.less'
 import 'uno.css'
+import { Buffer } from 'buffer'
+
+// polyfill
+window.Buffer = Buffer
 
 const app = createApp(App)
 

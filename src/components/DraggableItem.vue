@@ -12,7 +12,7 @@ function dragStart(payload: DragEvent) {
 </script>
 
 <template>
-  <div class="flex-inline" draggable="true" @dragstart="dragStart">
+  <div draggable="true" @dragstart="dragStart">
     <slot></slot>
   </div>
 </template>

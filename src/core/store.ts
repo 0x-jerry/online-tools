@@ -11,9 +11,10 @@ export type FlowStore = ReturnType<typeof createStore>
 
 export const key = Symbol() as InjectionKey<FlowStore>
 
-function createStore() {
+function createStore(opt?: { data: any }) {
   const data = reactive({
     stack: [] as OpNode[],
+    ...opt,
   })
 
   return {
@@ -40,8 +41,8 @@ function createStore() {
   }
 }
 
-export function provideFlowStore() {
-  const store = createStore()
+export function provideFlowStore(...args: Parameters<typeof createStore>) {
+  const store = createStore(...args)
   provide(key, store)
 
   return store

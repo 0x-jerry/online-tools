@@ -1,14 +1,16 @@
 <script lang="ts" setup>
 import { useFlowStore } from '@/core/store'
+import OpNode from './OpNode.vue'
 
 const store = useFlowStore()
 
 const props = defineProps<{
   id?: string
+  data?: string
 }>()
 
 const data = reactive({
-  symbol: '',
+  symbol: props.data || '',
 })
 
 watch(
@@ -28,10 +30,9 @@ defineExpose({
 </script>
 
 <template>
-  <div class="op-split flex gap-2">
-    <span> Split Symbol: </span>
+  <OpNode title="Split">
     <input type="text" v-model="data.symbol" />
-  </div>
+  </OpNode>
 </template>
 
 <style lang="less"></style>
