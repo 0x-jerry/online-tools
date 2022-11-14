@@ -31,7 +31,7 @@ defineExpose({
 
 <template>
   <OpNode title="Split" :id="id">
-    <input type="text" v-model="data.symbol" />
+    <input class="w-full" type="text" v-model="data.symbol" />
   </OpNode>
 </template>
 

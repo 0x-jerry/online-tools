@@ -31,7 +31,7 @@ defineExpose({
 
 <template>
   <OpNode title="Input" :id="id">
-    <input type="text" v-model="data.input" />
+    <input class="w-full" type="text" v-model="data.input" />
   </OpNode>
 </template>
 
