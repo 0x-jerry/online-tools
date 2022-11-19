@@ -9,6 +9,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Unocss from 'unocss/vite'
 import { VueKitResolver } from '@0x-jerry/vue-kit/resolver'
+import { DocsBlock } from './vite/DocsBlock'
 
 // https://vitejs.dev/config/
 export default defineConfig(({}) => {
@@ -21,6 +22,8 @@ export default defineConfig(({}) => {
     },
     plugins: [
       Vue(),
+
+      DocsBlock(),
 
       // https://github.com/antfu/unplugin-icons
       Icons({}),

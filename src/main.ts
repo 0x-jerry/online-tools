@@ -1,6 +1,7 @@
 import { createApp, Plugin } from 'vue'
 import App from './App.vue'
 
+import 'github-markdown-css'
 import 'normalize.css'
 import './styles/global.less'
 import 'uno.css'

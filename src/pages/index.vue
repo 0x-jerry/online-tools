@@ -6,6 +6,7 @@ import OpFlow from '@/core/OpFlow.vue'
 import { compressText, decompressText } from '@0x-jerry/utils'
 import type { Component } from 'vue'
 import OpMatch from '@/components/OpMatch.vue'
+import OpFilter from '@/components/OpFilter.vue'
 
 const router = useRouter()
 
@@ -30,7 +31,12 @@ const opMap: Record<string, Component> = {
   input: OpInput,
   split: OpSplit,
   match: OpMatch,
+  filter: OpFilter,
 }
+
+const data = shallowReactive({
+  selectedComp: null as any,
+})
 
 const opObjects = Object.keys(opMap).map((n) => ({ type: n }))
 
@@ -99,12 +105,15 @@ useEventListener('keydown', (e) => {
         :clone="cloneNode"
       >
         <template #item="{ element }">
-          <Component :is="opMap[element.type]"></Component>
+          <span @click="data.selectedComp = opMap[element.type]">
+            <Component :is="opMap[element.type]"></Component>
+          </span>
         </template>
       </Draggable>
     </div>
     <div class="flex-1">
       <div class="box-title">Description</div>
+      <div class="markdown-body p-2" v-if="data.selectedComp" v-html="data.selectedComp.docs"></div>
     </div>
   </div>
 </template>

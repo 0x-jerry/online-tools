@@ -22,7 +22,7 @@ defineExpose({
 
 <template>
   <OpNode title="Match" :id="id">
-    <div class="flex">
+    <div class="flex gap-1">
       <input class="flex-1" type="text" v-model="data.regexp" />
       <input class="w-60px" type="text" v-model="data.flags" />
     </div>
@@ -30,3 +30,7 @@ defineExpose({
 </template>
 
 <style lang="less"></style>
+
+<docs lang="md">
+# Match 操作
+</docs>

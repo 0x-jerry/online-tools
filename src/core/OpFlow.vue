@@ -43,7 +43,7 @@ defineExpose({
             class="cursor-pointer bg-white rounded-full color-gray-5 hover:(color-gray-7)"
             @click="store.remove(element.id)"
           >
-            <i-carbon-close-outline></i-carbon-close-outline>
+            <i-carbon-close />
           </span>
         </div>
         <Component

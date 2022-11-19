@@ -25,3 +25,7 @@ defineExpose({
 </template>
 
 <style lang="less"></style>
+
+<docs lang="md">
+# Split 操作
+</docs>
