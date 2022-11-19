@@ -1,4 +1,18 @@
 {
+  "name": "stack-ops",
+  "description": "Template for vue project.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0x-jerry/stack-ops.git"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0x-jerry/stack-ops/issues"
+  },
+  "homepage": "https://github.com/0x-jerry/stack-ops#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

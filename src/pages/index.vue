@@ -82,7 +82,9 @@ useEventListener('keydown', (e) => {
     <div class="w-400px border-(r gray-2) flex-(~ col)">
       <div class="flex-(~ 1 col)">
         <div class="box-title">
-          <span class="flex-1"> Stack </span>
+          <div class="flex-1 flex gap-2 items-center">
+            <span> Stack </span>
+          </div>
           <span>
             <span class="cursor-pointer color-gray-5 hover:(color-gray-7)" @click="run">
               <i-carbon-play></i-carbon-play>
@@ -121,7 +123,13 @@ useEventListener('keydown', (e) => {
       </Draggable>
     </div>
     <div class="flex-1">
-      <div class="box-title">Description</div>
+      <div class="box-title flex items-center gap-2">
+        <div class="flex-1">Description</div>
+
+        <a class="cursor-pointer flex" href="https://github.com/0x-jerry/stack-ops" target="_blank">
+          <i-logos-github-icon />
+        </a>
+      </div>
       <div class="markdown-body p-2" v-if="data.selectedComp" v-html="data.selectedComp.docs"></div>
       <DefaultDocs v-else class="p-2"> </DefaultDocs>
     </div>

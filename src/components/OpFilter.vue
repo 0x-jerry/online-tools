@@ -8,18 +8,17 @@ defineProps<{
   defaultValue?: any
 }>()
 
-const data = useNodeContext({
-  type: 'empty',
-})
-
 const filters: Record<string, (n: any) => boolean> = {
-  empty: (n: any) => is.empty(n),
   'non empty': (n: any) => !is.empty(n),
   number: (n: any) => is.number(n),
   string: (n: any) => is.string(n),
 }
 
 const keys = Object.keys(filters)
+
+const data = useNodeContext({
+  type: keys[0],
+})
 
 defineExpose({
   exec(value = []) {
