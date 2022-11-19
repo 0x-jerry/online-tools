@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useNodeContext } from '@/core/hooks'
 import { Option } from '@/types'
+import { is } from '@0x-jerry/utils'
 import OpNode from './OpNode.vue'
 
 defineProps<{
@@ -45,7 +46,9 @@ defineExpose({
 
     const r = new RegExp(regexp, data.flags)
 
-    return String(value).match(r)
+    return String(value)
+      .match(r)
+      ?.filter((n) => !is.nullish(n))
   },
 })
 </script>

@@ -7,6 +7,7 @@ import { compressText, decompressText } from '@0x-jerry/utils'
 import type { Component } from 'vue'
 import OpMatch from '@/components/OpMatch.vue'
 import OpFilter from '@/components/OpFilter.vue'
+import DefaultDocs from '@/components/DefaultDocs.vue'
 
 interface OpObject {
   type: string
@@ -122,6 +123,7 @@ useEventListener('keydown', (e) => {
     <div class="flex-1">
       <div class="box-title">Description</div>
       <div class="markdown-body p-2" v-if="data.selectedComp" v-html="data.selectedComp.docs"></div>
+      <DefaultDocs v-else class="p-2"> </DefaultDocs>
     </div>
   </div>
 </template>
