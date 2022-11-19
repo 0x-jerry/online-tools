@@ -19,10 +19,11 @@ function createStore(opt?: { data: any }) {
 
   return {
     data,
-    create(type: string) {
+    create(type: string, data?: any) {
       const node: OpNode = {
         id: uuid(),
         type,
+        data: data,
       }
 
       return node

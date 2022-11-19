@@ -5,7 +5,7 @@ import OpNode from './OpNode.vue'
 
 defineProps<{
   id?: string
-  data?: any
+  defaultValue?: any
 }>()
 
 const data = useNodeContext({

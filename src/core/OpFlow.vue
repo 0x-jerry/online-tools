@@ -49,7 +49,7 @@ defineExpose({
         <Component
           :is="findComp(element.type)"
           :id="element.id"
-          :data="element.data"
+          :default-value="element.data"
           @update:value="(v: any) => element.data = v"
           :ref="(c: any) => (comps[element.id] = c)"
         ></Component>

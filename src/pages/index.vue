@@ -8,6 +8,11 @@ import type { Component } from 'vue'
 import OpMatch from '@/components/OpMatch.vue'
 import OpFilter from '@/components/OpFilter.vue'
 
+interface OpObject {
+  type: string
+  value: any
+}
+
 const router = useRouter()
 
 const route = useRoute()
@@ -38,7 +43,7 @@ const data = shallowReactive({
   selectedComp: null as any,
 })
 
-const opObjects = Object.keys(opMap).map((n) => ({ type: n }))
+const opObjects: OpObject[] = Object.keys(opMap).map((n) => ({ type: n, value: null }))
 
 const flow = ref<InstanceType<typeof OpFlow>>()
 
@@ -60,8 +65,8 @@ function run() {
   })
 }
 
-function cloneNode(value: { type: string }) {
-  return flow.value?.store.create(value.type)
+function cloneNode(value: OpObject) {
+  return flow.value?.store.create(value.type, value.value)
 }
 
 useEventListener('keydown', (e) => {
@@ -106,7 +111,10 @@ useEventListener('keydown', (e) => {
       >
         <template #item="{ element }">
           <span @click="data.selectedComp = opMap[element.type]">
-            <Component :is="opMap[element.type]"></Component>
+            <Component
+              :is="opMap[element.type]"
+              @update:value="(v: any) => element.value = v"
+            ></Component>
           </span>
         </template>
       </Draggable>
