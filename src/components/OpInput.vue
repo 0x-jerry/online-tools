@@ -28,4 +28,6 @@ defineExpose({
 
 <docs lang="md">
 # Input 操作
+
+输入字符串，用于后续流程使用。
 </docs>

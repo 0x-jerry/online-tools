@@ -80,4 +80,6 @@ defineExpose({
 
 <docs lang="md">
 # Match 操作
+
+可选内置匹配规则，或者手动设置正则表达式
 </docs>

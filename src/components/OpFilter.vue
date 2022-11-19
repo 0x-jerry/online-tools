@@ -43,4 +43,10 @@ defineExpose({
 
 <docs lang="md">
 # Filter 操作
+
+筛选操作，内置以下规则：
+
+- 非空
+- 数字
+- 字符串
 </docs>
