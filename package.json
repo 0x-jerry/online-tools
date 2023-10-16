@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.1.140",
-    "@types/marked": "^4.0.7",
+    "@types/marked": "^5.0.0",
     "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
     "less": "^4.1.3",
