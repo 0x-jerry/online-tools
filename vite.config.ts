@@ -5,10 +5,7 @@ import path from 'path'
 import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
 import Unocss from 'unocss/vite'
-import { VueKitResolver } from '@0x-jerry/vue-kit/resolver'
 import { DocsBlock } from './vite/DocsBlock'
 
 // https://vitejs.dev/config/
@@ -25,13 +22,9 @@ export default defineConfig(({}) => {
 
       DocsBlock(),
 
-      // https://github.com/antfu/unplugin-icons
-      Icons({}),
-
       // https://github.com/antfu/vite-plugin-components
       Components({
         dts: 'src/auto-components.d.ts',
-        resolvers: [VueKitResolver(), IconsResolver()],
       }),
 
       // https://github.com/hannoeru/vite-plugin-pages
