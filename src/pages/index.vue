@@ -81,30 +81,7 @@ useEventListener('keydown', (e) => {
 
 <template>
   <div class="flex w-screen h-screen">
-    <div class="w-400px border-(r gray-2) flex-(~ col)">
-      <div class="flex-(~ 1 col)">
-        <div class="box-title">
-          <div class="flex-1 flex gap-2 items-center">
-            <span> Stack </span>
-          </div>
-          <span>
-            <span class="cursor-pointer color-gray-5 hover:(color-gray-7)" @click="run">
-              <i-carbon-play></i-carbon-play>
-            </span>
-          </span>
-        </div>
-        <OpFlow class="flex-(~ 1 col) gap-2 px-2 pt-2" :ops="opMap" ref="flow" :data="flowData">
-        </OpFlow>
-      </div>
-
-      <div class="h-200px border-(t gray-2)">
-        <div class="box-title">Output</div>
-        <div>
-          {{ output }}
-        </div>
-      </div>
-    </div>
-    <div class="w-400px border-(r gray-2) flex-(~ col) gap-2">
+    <div class="w-400px border-(0 r solid gray-2) flex-(~ col) gap-2">
       <div class="box-title">Operations</div>
       <Draggable
         class="px-2 flex-(~ 1 col) gap-2"
@@ -124,12 +101,35 @@ useEventListener('keydown', (e) => {
         </template>
       </Draggable>
     </div>
+    <div class="w-400px border-(0 r solid gray-2) flex-(~ col)">
+      <div class="flex-(~ 1 col)">
+        <div class="box-title">
+          <div class="flex-1 flex gap-2 items-center">
+            <span> Stack </span>
+          </div>
+          <span>
+            <span class="cursor-pointer color-gray-5 hover:(color-gray-7)" @click="run">
+              <i class="i-carbon-play"></i>
+            </span>
+          </span>
+        </div>
+        <OpFlow class="flex-(~ 1 col) gap-2 px-2 pt-2" :ops="opMap" ref="flow" :data="flowData">
+        </OpFlow>
+      </div>
+
+      <div class="h-200px border-(t gray-2)">
+        <div class="box-title">Output</div>
+        <div>
+          {{ output }}
+        </div>
+      </div>
+    </div>
     <div class="flex-1">
       <div class="box-title flex items-center gap-2">
         <div class="flex-1">Description</div>
 
         <a class="cursor-pointer flex" href="https://github.com/0x-jerry/stack-ops" target="_blank">
-          <i-logos-github-icon />
+          <i class="i-logos-github-icon"></i>
         </a>
       </div>
       <div class="markdown-body p-2" v-if="data.selectedComp" v-html="data.selectedComp.docs"></div>

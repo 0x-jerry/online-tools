@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Draggable from 'vuedraggable'
-import type { Component } from 'vue'
+import { ref, type Component } from 'vue'
 import { provideFlowStore } from './store'
 
 const props = defineProps<{
@@ -43,7 +43,7 @@ defineExpose({
             class="cursor-pointer bg-white rounded-full color-gray-5 hover:(color-gray-7)"
             @click="store.remove(element.id)"
           >
-            <i-carbon-close />
+            <i class="i-carbon-close"></i>
           </span>
         </div>
         <Component

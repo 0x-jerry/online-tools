@@ -6,8 +6,8 @@ defineProps<{
 </script>
 
 <template>
-  <div class="op op-node border-(~ gray-2) rounded-sm">
-    <div class="op-node--title op-node--handle border-(b gray-2) px-2 py-1">
+  <div class="op op-node border-(1 solid gray-2) rounded-sm bg-white">
+    <div class="op-node--title op-node--handle border-(0 b solid gray-2) px-2 py-1">
       <slot name="title">
         <span>
           {{ title }}

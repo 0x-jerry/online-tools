@@ -2,6 +2,7 @@
   "name": "stack-ops",
   "description": "Template for vue project.",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
