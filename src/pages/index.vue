@@ -4,10 +4,12 @@ import OpInput from '@/components/OpInput.vue'
 import OpSplit from '@/components/OpSplit.vue'
 import OpFlow from '@/core/OpFlow.vue'
 import { compressText, decompressText } from '@0x-jerry/utils'
-import type { Component } from 'vue'
+import { computed, ref, shallowReactive, type Component } from 'vue'
 import OpMatch from '@/components/OpMatch.vue'
 import OpFilter from '@/components/OpFilter.vue'
 import DefaultDocs from '@/components/DefaultDocs.vue'
+import { useEventListener } from '@vueuse/core'
+import { useRouter, useRoute } from 'vue-router'
 
 interface OpObject {
   type: string
@@ -20,13 +22,13 @@ const route = useRoute()
 
 const URL_PARAM_KEY = 'v'
 
-const flowData = computed(() => {
+const flowData = computed(async () => {
   const u = (route.query[URL_PARAM_KEY] || '') as string
 
   if (!u) return null
 
   try {
-    const r = JSON.parse(decompressText(u))
+    const r = JSON.parse(await decompressText(u))
     return r
   } catch (error) {
     return null
@@ -50,7 +52,7 @@ const flow = ref<InstanceType<typeof OpFlow>>()
 
 const output = ref<any>('')
 
-function run() {
+async function run() {
   if (!flow.value) return
 
   const v = flow.value.run()
@@ -58,7 +60,7 @@ function run() {
   output.value = typeof v === 'object' ? JSON.stringify(v, null, 2) : v
 
   // update url
-  const conf = compressText(JSON.stringify(flow.value.store.data))
+  const conf = await compressText(JSON.stringify(flow.value.store.data))
   router.push({
     query: {
       [URL_PARAM_KEY]: conf,

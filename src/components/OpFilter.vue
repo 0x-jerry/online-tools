@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useNodeContext } from '@/core/hooks'
-import { is } from '@0x-jerry/utils'
 import OpNode from './OpNode.vue'
+import { isEmpty, isNumber, isString } from '@0x-jerry/utils'
 
 defineProps<{
   id?: string
@@ -9,9 +9,9 @@ defineProps<{
 }>()
 
 const filters: Record<string, (n: any) => boolean> = {
-  'non empty': (n: any) => !is.empty(n),
-  number: (n: any) => is.number(n),
-  string: (n: any) => is.string(n),
+  'non empty': (n: any) => !isEmpty(n),
+  number: (n: any) => isNumber(n),
+  string: (n: any) => isString(n),
 }
 
 const keys = Object.keys(filters)

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { useNodeContext } from '@/core/hooks'
-import { Option } from '@/types'
-import { is } from '@0x-jerry/utils'
+import type { Option } from '@/types'
 import OpNode from './OpNode.vue'
+import { isNullish } from '@0x-jerry/utils'
 
 defineProps<{
   id?: string
@@ -48,7 +48,7 @@ defineExpose({
 
     return String(value)
       .match(r)
-      ?.filter((n) => !is.nullish(n))
+      ?.filter((n) => !isNullish(n))
   },
 })
 </script>

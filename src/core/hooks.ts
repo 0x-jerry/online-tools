@@ -1,3 +1,5 @@
+import { getCurrentInstance, reactive, watch } from 'vue'
+
 export function useNodeContext<T extends {}>(defaultValue: T) {
   const ins = getCurrentInstance()
 
