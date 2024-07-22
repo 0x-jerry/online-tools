@@ -26,7 +26,17 @@ export default defineConfig(({}) => {
       }),
 
       // https://github.com/unocss/unocss
-      Unocss(),
+      Unocss({
+        content: {
+          pipeline: {
+            include: [
+              //
+              /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+              'src/tools.ts',
+            ],
+          },
+        },
+      }),
     ],
     test: {
       globals: true,
