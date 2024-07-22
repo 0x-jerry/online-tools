@@ -8,8 +8,9 @@ import AppSidebar from './components/AppSidebar.vue'
       <AppSidebar />
     </div>
 
-    <div>
-      <div class="p-2">
+    <div class="flex-1 w-0 flex flex-col">
+      <div class="title"></div>
+      <div class="flex-1 h-0 flex flex-col">
         <router-view></router-view>
       </div>
     </div>
