@@ -1,14 +1,16 @@
 <script lang="ts" setup>
 import { useEditor } from './useEditor'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useElementSize, useVModel, watchImmediate } from '@vueuse/core'
-import { editor } from 'monaco-editor'
+import { editor, Uri } from 'monaco-editor'
 import './useWorker'
+import { createUri } from './utils'
 
 export interface CodeEditorProps {
-  language: string
+  language?: string
   modelValue?: string
   options?: editor.IStandaloneEditorConstructionOptions
+  filepath?: string | Uri
 }
 
 const containerNode = ref<HTMLElement>()
@@ -19,11 +21,23 @@ const emit = defineEmits(['update:modelValue'])
 
 const code = useVModel(props, 'modelValue', emit, { passive: true })
 
-const codeEditor = useEditor(rootNode)
+const modelUri = computed(() => createUri(props.filepath))
 
+const codeEditor = useEditor(rootNode, (editor) => {
+  editor.onDidChangeModelContent((e) => {
+    code.value = editor.getValue()
+  })
+})
+
+// update model language and filename
+watchImmediate(() => [props.language, modelUri.value, codeEditor.value], updateTextModel)
+
+// update model code
 watchImmediate(
-  () => props.modelValue,
-  (value) => {
+  () => [props.modelValue, codeEditor.value],
+  () => {
+    let value = props.modelValue
+
     value = value || ''
 
     if (value === code.value) {
@@ -32,52 +46,57 @@ watchImmediate(
 
     code.value = value
 
-    codeEditor.setValue(code.value)
-    // const textModel = codeEditor.getModel()
-    // textModel?.setValue()
-    // editor.setModelLanguage()
-    // editor.setModel
-    // editor.getModel()?.getLanguageId()
+    codeEditor.value?.setValue(code.value)
   },
 )
 
+// update editor options
 watchImmediate(
-  () => props.language,
-  (lang) => {
-    const textModel = codeEditor.getModel()
-    if (!textModel) {
-      return
-    }
-
-    editor.setModelLanguage(textModel, lang)
-  },
-)
-
-watchImmediate(
-  () => props.options,
-  (editorConfig) => {
+  () => [props.options, codeEditor.value],
+  () => {
+    const editorConfig = props.options
     if (!editorConfig) {
       return
     }
 
-    codeEditor.updateOptions(editorConfig)
+    codeEditor.value?.updateOptions(editorConfig)
   },
 )
 
+function updateTextModel() {
+  let model = editor.getModel(modelUri.value)
+
+  if (!model) {
+    model = editor.createModel(code.value || '', props.language, modelUri.value)
+  }
+
+  if (props.language) {
+    editor.setModelLanguage(model, props.language)
+  }
+
+  codeEditor.value?.setModel(model)
+}
+
 const containerNodeSize = useElementSize(containerNode)
+
+defineExpose({
+  codeEditor,
+})
 </script>
 
 <template>
-  <div class="code-editor" ref="containerNode">
-    <div
-      class="code-editor-container"
-      :style="{
-        width: `${containerNodeSize.width.value}px`,
-        height: `${containerNodeSize.height.value}px`,
-      }"
-      ref="rootNode"
-    ></div>
-    <!--  -->
+  <div class="flex size-full flex-col">
+    <!-- <div class="title border-(0 b solid gray-2) px-2">{{ modelUri.toString() }}</div> -->
+    <div class="code-editor flex-1 h-0" ref="containerNode">
+      <div
+        class="code-editor-container"
+        :style="{
+          width: `${containerNodeSize.width.value}px`,
+          height: `${containerNodeSize.height.value}px`,
+        }"
+        ref="rootNode"
+      />
+    </div>
   </div>
 </template>
 
