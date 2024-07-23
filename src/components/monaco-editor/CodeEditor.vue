@@ -5,6 +5,7 @@ import { useElementSize, useVModel, watchImmediate } from '@vueuse/core'
 import { editor, Uri } from 'monaco-editor'
 import './useWorker'
 import { createUri } from './utils'
+import CodeFileIcon from './CodeFileIcon.vue'
 
 export interface CodeEditorProps {
   language?: string
@@ -86,7 +87,12 @@ defineExpose({
 
 <template>
   <div class="flex size-full flex-col">
-    <div class="title px-2 py-1 bg-light-4 font-mono text-sm">{{ modelUri.path }}</div>
+    <div class="title px-2 py-1 bg-light-4 font-mono text-sm">
+      <CodeFileIcon :uri="modelUri" />
+      <span>
+        {{ modelUri.path.slice(1) }}
+      </span>
+    </div>
     <div class="code-editor flex-1 h-0" ref="containerNode">
       <div
         class="code-editor-container"
@@ -110,5 +116,9 @@ defineExpose({
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.title {
+  @apply flex items-center gap-2;
 }
 </style>
