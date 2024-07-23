@@ -2,7 +2,7 @@
 import CodeEditor from '@/components/monaco-editor/CodeEditor.vue'
 import { useInstance } from '@/composables/useInstance'
 import { languages } from 'monaco-editor'
-import { onMounted, onUnmounted, reactive, watch } from 'vue'
+import { onUnmounted, reactive, watch } from 'vue'
 
 const schemaEditor = useInstance(CodeEditor)
 const valueEditor = useInstance(CodeEditor)
@@ -12,26 +12,25 @@ const state = reactive({
   target: '',
 })
 
-onMounted(() => {
-  languages.json.jsonDefaults.setDiagnosticsOptions({
-    enableSchemaRequest: true,
-    validate: true,
-    schemas: [
-      {
-        uri: 'https://json-schema.org/draft-07/schema',
-        fileMatch: ['schema.json'],
-      },
-    ],
-  })
-})
-
 watch(
   () => [state.schema],
   () => {
-    let schema = undefined
+    const schemas = [
+      {
+        uri: 'https://json-schema.org/draft-07/schema',
+        fileMatch: ['schema.json'],
+        schema: undefined as any,
+      },
+    ]
 
     try {
-      schema = JSON.parse(state.schema)
+      const schema = JSON.parse(state.schema)
+
+      schemas.push({
+        uri: 'schema.json',
+        schema,
+        fileMatch: ['test.json'],
+      })
     } catch (error) {
       console.warn(error)
       return
@@ -40,17 +39,7 @@ watch(
     languages.json.jsonDefaults.setDiagnosticsOptions({
       enableSchemaRequest: true,
       validate: true,
-      schemas: [
-        {
-          uri: 'https://json-schema.org/draft-07/schema',
-          fileMatch: ['schema.json'],
-        },
-        {
-          uri: 'schema.json',
-          schema,
-          fileMatch: ['test.json'],
-        },
-      ],
+      schemas,
     })
   },
 )
