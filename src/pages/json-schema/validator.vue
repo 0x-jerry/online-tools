@@ -62,7 +62,7 @@ onUnmounted(() => {
 
 <template>
   <div class="flex h-full">
-    <div class="flex-1">
+    <div class="flex-1 border-(0 r solid gray-2)">
       <CodeEditor
         ref="schemaEditor"
         language="json"

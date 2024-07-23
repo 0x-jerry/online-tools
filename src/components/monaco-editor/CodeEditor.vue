@@ -86,7 +86,7 @@ defineExpose({
 
 <template>
   <div class="flex size-full flex-col">
-    <!-- <div class="title border-(0 b solid gray-2) px-2">{{ modelUri.toString() }}</div> -->
+    <div class="title px-2 py-1 bg-light-4 font-mono text-sm">{{ modelUri.path }}</div>
     <div class="code-editor flex-1 h-0" ref="containerNode">
       <div
         class="code-editor-container"
