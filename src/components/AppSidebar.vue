@@ -57,17 +57,18 @@ function isActive(tool: ToolManifest) {
 .tool-item {
   @apply flex items-center py-2 px-2;
   @apply bg-white cursor-pointer;
+  @apply c-gray-6;
 
   &:hover {
     @apply bg-light-1;
   }
 
   &.is-active {
-    @apply bg-light-2;
+    @apply bg-light-6;
   }
 
   .icon {
-    @apply size-18px;
+    @apply text-lg;
     @apply mr-1;
   }
 }

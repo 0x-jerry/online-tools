@@ -17,9 +17,9 @@ export interface ToolManifest {
 
 export const allTools: ToolManifest[] = [
   {
-    hide: true,
     name: 'Welcome',
     route: '/',
+    icon: 'i-carbon:home',
   },
   {
     name: 'Validate JSON Schema',
