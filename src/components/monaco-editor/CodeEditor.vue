@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { useEditor } from './useEditor'
-import { computed, ref } from 'vue'
 import { useElementSize, useVModel, watchImmediate } from '@vueuse/core'
-import { editor, Uri } from 'monaco-editor'
+import { type Uri, editor } from 'monaco-editor'
+import { computed, ref } from 'vue'
+import { useEditor } from './useEditor'
 import './useWorker'
-import { createUri } from './utils'
 import CodeFileIcon from './CodeFileIcon.vue'
+import { createUri } from './utils'
 
 export interface CodeEditorProps {
   language?: string

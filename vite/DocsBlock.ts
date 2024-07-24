@@ -1,5 +1,5 @@
 import * as marked from 'marked'
-import { Plugin } from 'vite'
+import type { Plugin } from 'vite'
 
 export const DocsBlock = () => {
   const plugin: Plugin = {

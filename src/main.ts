@@ -1,4 +1,4 @@
-import { createApp, type Plugin } from 'vue'
+import { type Plugin, createApp } from 'vue'
 import App from './App.vue'
 
 import 'github-markdown-css'
@@ -13,10 +13,12 @@ window.Buffer = Buffer
 const app = createApp(App)
 
 // install all modules
-Object.values(import.meta.glob<{ install: Plugin }>('./modules/*.ts', { eager: true })).forEach(
-  (m) => {
-    app.use(m.install)
-  },
+const modules = Object.values(
+  import.meta.glob<{ install: Plugin }>('./modules/*.ts', { eager: true }),
 )
+
+for (const module of modules) {
+  app.use(module.install)
+}
 
 app.mount('#app')

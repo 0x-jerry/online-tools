@@ -1,13 +1,13 @@
+import path from 'node:path'
+import Vue from '@vitejs/plugin-vue'
+import Unocss from 'unocss/vite'
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import path from 'path'
 import Pages from 'vite-plugin-pages'
-import Unocss from 'unocss/vite'
 import { DocsBlock } from './vite/DocsBlock'
 
 // https://vitejs.dev/config/
-export default defineConfig(({}) => {
+export default defineConfig(() => {
   return {
     base: './',
     resolve: {

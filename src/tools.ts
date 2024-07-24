@@ -28,6 +28,8 @@ export const allTools: ToolManifest[] = [
   },
 ]
 
-allTools.forEach((item, idx) => (item.id = idx.toString()))
+allTools.forEach((item, idx) => {
+  item.id = idx.toString()
+})
 
 export const visibleTools = allTools.filter((n) => n.hide !== true)

@@ -1,6 +1,6 @@
 import generatedRoutes from 'virtual:generated-pages'
+import { type Plugin, reactive } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { reactive, type Plugin } from 'vue'
 
 const _state = reactive({
   nextLocation: '',

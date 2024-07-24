@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { visibleTools, type ToolManifest } from '@/tools'
+import { type ToolManifest, visibleTools } from '@/tools'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 

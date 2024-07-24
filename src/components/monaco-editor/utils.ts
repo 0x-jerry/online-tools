@@ -10,7 +10,7 @@ export function createUri(filepath?: string | Uri) {
       scheme: 'file',
       path: filepath,
     })
-  } else {
-    return filepath
   }
+
+  return filepath
 }

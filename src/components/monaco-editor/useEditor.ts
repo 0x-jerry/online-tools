@@ -1,5 +1,5 @@
 import { editor } from 'monaco-editor'
-import { onMounted, onUnmounted, shallowRef, type Ref } from 'vue'
+import { type Ref, onMounted, onUnmounted, shallowRef } from 'vue'
 
 export function useEditor(
   rootNode: Ref<HTMLElement | undefined>,

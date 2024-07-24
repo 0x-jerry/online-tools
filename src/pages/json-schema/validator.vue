@@ -19,7 +19,7 @@ watch(
       {
         uri: 'https://json-schema.org/draft-07/schema',
         fileMatch: ['schema.json'],
-        schema: undefined as any,
+        schema: undefined as Record<string, string> | undefined,
       },
     ]
 
