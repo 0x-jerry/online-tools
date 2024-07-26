@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@0x-jerry/utils':
-        specifier: ^2.4.3
-        version: 2.4.3
+        specifier: ^3.0.0
+        version: 3.0.0
       '@0x-jerry/vue-kit':
         specifier: ^2.0.4
         version: 2.0.4(typescript@5.5.3)
@@ -80,6 +80,9 @@ packages:
 
   '@0x-jerry/utils@2.4.3':
     resolution: {integrity: sha512-mgs+kpIV+mPMkr7O3/3Fe9PvFx9dGyum8tlQl5KEN4JeuPOqChkwyWjtp95QOYqXFyAoyy1PWIksF74+6dWdOQ==}
+
+  '@0x-jerry/utils@3.0.0':
+    resolution: {integrity: sha512-a0b38xFszEj2+O2wv96LWl2MyRLmApOzIb8NxZRFWtC0SWXzQcfkXxNs06RfMo5MAxFXyxSQWUtw0tLIdnobiw==}
 
   '@0x-jerry/vue-kit@2.0.4':
     resolution: {integrity: sha512-98MYztK+ya1UlZzyXqVnSuS92H7ChX64IRXid16ArW8RHA+HYlYUtaFBRfr0AH8OMUlJkqCtmpDMQ2/xExb67Q==}
@@ -1596,6 +1599,12 @@ packages:
 snapshots:
 
   '@0x-jerry/utils@2.4.3':
+    dependencies:
+      fflate: 0.8.2
+      nanoid: 5.0.7
+      picocolors: 1.0.1
+
+  '@0x-jerry/utils@3.0.0':
     dependencies:
       fflate: 0.8.2
       nanoid: 5.0.7
