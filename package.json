@@ -36,7 +36,7 @@
     "@types/node": "^20.14.11",
     "@vitejs/plugin-vue": "^5.0.5",
     "less": "^4.2.0",
-    "marked": "^13.0.2",
+    "marked": "^14.0.0",
     "typescript": "^5.5.3",
     "unocss": "0.61.5",
     "vite": "^5.3.4",
