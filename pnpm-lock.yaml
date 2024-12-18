@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@0x-jerry/utils':
-        specifier: ^2.4.3
-        version: 2.4.3
+        specifier: ^4.0.0
+        version: 4.0.1
       '@0x-jerry/vue-kit':
         specifier: ^2.0.4
         version: 2.0.4(typescript@5.5.3)
@@ -80,6 +80,9 @@ packages:
 
   '@0x-jerry/utils@2.4.3':
     resolution: {integrity: sha512-mgs+kpIV+mPMkr7O3/3Fe9PvFx9dGyum8tlQl5KEN4JeuPOqChkwyWjtp95QOYqXFyAoyy1PWIksF74+6dWdOQ==}
+
+  '@0x-jerry/utils@4.0.1':
+    resolution: {integrity: sha512-q//1rKmCtiFTakXQB+9BneZJsEVpK/LLKJ1XRlSfc4DcR92tObay1SNT7luZ47olx+1ofBwoCE99U87xNAH4cA==}
 
   '@0x-jerry/vue-kit@2.0.4':
     resolution: {integrity: sha512-98MYztK+ya1UlZzyXqVnSuS92H7ChX64IRXid16ArW8RHA+HYlYUtaFBRfr0AH8OMUlJkqCtmpDMQ2/xExb67Q==}
@@ -1206,6 +1209,11 @@ packages:
     engines: {node: ^18 || >=20}
     hasBin: true
 
+  nanoid@5.0.9:
+    resolution: {integrity: sha512-Aooyr6MXU6HpvvWXKoVoXwKMs/KyVakWwg7xQfv5/S/RIgJMy0Ifa45H9qqYy7pTCszrHzP21Uk4PZq2HpEM8Q==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+
   needle@3.3.1:
     resolution: {integrity: sha512-6k0YULvhpw+RoLNiQCRKOl09Rv1dPLr8hHnVjHqdolKwDrdNyk+Hmrthi4lIGPPz3r39dLx0hsF5s40sZ3Us4Q==}
     engines: {node: '>= 4.4.x'}
@@ -1286,6 +1294,9 @@ packages:
 
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
+
+  picocolors@1.1.1:
+    resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -1600,6 +1611,12 @@ snapshots:
       fflate: 0.8.2
       nanoid: 5.0.7
       picocolors: 1.0.1
+
+  '@0x-jerry/utils@4.0.1':
+    dependencies:
+      fflate: 0.8.2
+      nanoid: 5.0.9
+      picocolors: 1.1.1
 
   '@0x-jerry/vue-kit@2.0.4(typescript@5.5.3)':
     dependencies:
@@ -2795,6 +2812,8 @@ snapshots:
 
   nanoid@5.0.7: {}
 
+  nanoid@5.0.9: {}
+
   needle@3.3.1:
     dependencies:
       iconv-lite: 0.6.3
@@ -2860,6 +2879,8 @@ snapshots:
   perfect-debounce@1.0.0: {}
 
   picocolors@1.0.1: {}
+
+  picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
 
