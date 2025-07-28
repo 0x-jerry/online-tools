@@ -21,7 +21,7 @@
   "dependencies": {
     "@0x-jerry/utils": "^2.4.3",
     "@0x-jerry/vue-kit": "^2.0.4",
-    "@vueuse/core": "^10.11.0",
+    "@vueuse/core": "^13.0.0",
     "buffer": "^6.0.3",
     "github-markdown-css": "^5.6.1",
     "monaco-editor": "^0.50.0",
