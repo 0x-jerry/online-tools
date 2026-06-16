@@ -31,6 +31,11 @@ export const allTools: ToolManifest[] = [
     route: '/markdown',
     icon: 'i-carbon:document',
   },
+  {
+    name: 'Latex Preview',
+    route: '/latex',
+    icon: 'i-carbon:math-curve',
+  },
 ]
 
 allTools.forEach((item, idx) => {
