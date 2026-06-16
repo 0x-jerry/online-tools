@@ -26,6 +26,11 @@ export const allTools: ToolManifest[] = [
     route: '/json-schema/validator',
     icon: 'i-carbon:json',
   },
+  {
+    name: 'Markdown Preview',
+    route: '/markdown',
+    icon: 'i-carbon:document',
+  },
 ]
 
 allTools.forEach((item, idx) => {

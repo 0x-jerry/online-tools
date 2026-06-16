@@ -45,6 +45,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/markdown/': RouteRecordInfo<
+      '/markdown/',
+      '/markdown',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -69,6 +76,14 @@ declare module 'vue-router/auto-routes' {
     'src/pages/json-schema/validator.vue': {
       routes:
         | '/json-schema/validator'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/markdown/index.vue': {
+      routes:
+        | '/markdown/'
       views:
         | never
       pathParamNames:

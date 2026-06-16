@@ -12,6 +12,7 @@ export interface CodeEditorProps {
   modelValue?: string
   options?: editor.IStandaloneEditorConstructionOptions
   filepath?: string | Uri
+  setup?: (editor: editor.IStandaloneCodeEditor) => void
 }
 
 const containerNode = ref<HTMLElement>()
@@ -28,6 +29,7 @@ const codeEditor = useEditor(rootNode, (editor) => {
   editor.onDidChangeModelContent((e) => {
     code.value = editor.getValue()
   })
+  props.setup?.(editor)
 })
 
 // update model language and filename
