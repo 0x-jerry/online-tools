@@ -2,6 +2,9 @@
 
 Some online tools for developers.
 
-## Tools List
+## Tools
 
-- [ ] Validate JSON Schema
+- Validate JSON Schema
+- Markdown Preview
+- LaTeX Preview
+- Mermaid Diagram Preview
