@@ -30,7 +30,7 @@ export const install: Plugin = (app) => {
   })
 
   app.use(router)
-  
+
   if (import.meta.hot) {
     handleHotUpdate(router)
   }

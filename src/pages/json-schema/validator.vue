@@ -1,19 +1,18 @@
 <script lang="ts" setup>
 import CodeEditor from '@/components/monaco-editor/CodeEditor.vue'
 import { useInstance } from '@/composables/useInstance'
+import { useToolStorage } from '@/composables/useToolStorage'
 import { json } from 'monaco-editor'
-import { onUnmounted, reactive, watch } from 'vue'
+import { onUnmounted, watch } from 'vue'
 
 const schemaEditor = useInstance(CodeEditor)
 const valueEditor = useInstance(CodeEditor)
 
-const state = reactive({
-  schema: '',
-  target: '',
-})
+const schema = useToolStorage('', 'schema')
+const target = useToolStorage('', 'target')
 
 watch(
-  () => [state.schema],
+  () => schema.value,
   () => {
     const schemas = [
       {
@@ -24,11 +23,11 @@ watch(
     ]
 
     try {
-      const schema = JSON.parse(state.schema)
+      const parsed = JSON.parse(schema.value)
 
       schemas.push({
         uri: 'schema.json',
-        schema,
+        schema: parsed,
         fileMatch: ['test.json'],
       })
     } catch (error) {
@@ -52,16 +51,11 @@ onUnmounted(() => {
 <template>
   <div class="flex h-full">
     <div class="flex-1 border-(0 r solid gray-2)">
-      <CodeEditor
-        ref="schemaEditor"
-        language="json"
-        filepath="schema.json"
-        v-model="state.schema"
-      />
+      <CodeEditor ref="schemaEditor" language="json" filepath="schema.json" v-model="schema" />
     </div>
 
     <div class="flex-1">
-      <CodeEditor ref="valueEditor" language="json" filepath="test.json" v-model="state.target" />
+      <CodeEditor ref="valueEditor" language="json" filepath="test.json" v-model="target" />
     </div>
   </div>
 </template>

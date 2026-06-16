@@ -1,23 +1,28 @@
 <script lang="ts" setup>
 import CodeEditor from '@/components/monaco-editor/CodeEditor.vue'
+import { useToolStorage } from '@/composables/useToolStorage'
 import katex from 'katex'
 import { ref, watch } from 'vue'
 import { defaultSource } from './_defaultSource'
 
-const source = ref(defaultSource)
+const source = useToolStorage(defaultSource)
 
 const html = ref('')
 
-watch(source, (val) => {
-  try {
-    html.value = katex.renderToString(val.trim() || '\\text{Enter LaTeX}', {
-      throwOnError: false,
-      displayMode: true,
-    })
-  } catch {
-    html.value = ''
-  }
-}, { immediate: true })
+watch(
+  source,
+  (val) => {
+    try {
+      html.value = katex.renderToString(val.trim() || '\\text{Enter LaTeX}', {
+        throwOnError: false,
+        displayMode: true,
+      })
+    } catch {
+      html.value = ''
+    }
+  },
+  { immediate: true },
+)
 </script>
 
 <template>

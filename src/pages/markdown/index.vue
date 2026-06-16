@@ -1,18 +1,23 @@
 <script lang="ts" setup>
 import CodeEditor from '@/components/monaco-editor/CodeEditor.vue'
+import { useToolStorage } from '@/composables/useToolStorage'
 import { marked } from 'marked'
 import type { editor } from 'monaco-editor'
 import { onUnmounted, ref, watch } from 'vue'
 import { defaultSource } from './_defaultSource'
 
-const source = ref(defaultSource)
+const source = useToolStorage(defaultSource)
 
 const html = ref('')
 const previewContainer = ref<HTMLElement>()
 
-watch(source, (val) => {
-  html.value = marked.parse(val, { async: false }) as string
-}, { immediate: true })
+watch(
+  source,
+  (val) => {
+    html.value = marked.parse(val, { async: false }) as string
+  },
+  { immediate: true },
+)
 
 let scrollDisposable: { dispose(): void } | undefined
 
