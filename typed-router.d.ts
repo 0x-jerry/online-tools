@@ -59,6 +59,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/mermaid/': RouteRecordInfo<
+      '/mermaid/',
+      '/mermaid',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -99,6 +106,14 @@ declare module 'vue-router/auto-routes' {
     'src/pages/markdown/index.vue': {
       routes:
         | '/markdown/'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/mermaid/index.vue': {
+      routes:
+        | '/mermaid/'
       views:
         | never
       pathParamNames:

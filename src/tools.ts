@@ -36,6 +36,11 @@ export const allTools: ToolManifest[] = [
     route: '/latex',
     icon: 'i-carbon:math-curve',
   },
+  {
+    name: 'Mermaid Preview',
+    route: '/mermaid',
+    icon: 'i-carbon:flow',
+  },
 ]
 
 allTools.forEach((item, idx) => {

@@ -1,5 +1,7 @@
 import { typescript } from 'monaco-editor'
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
+import { registerLatex } from './langs/latex.lang'
+import { registerMermaid } from './langs/mermaid.lang'
 
 self.MonacoEnvironment = {
   async getWorker(_, label: string) {
@@ -32,3 +34,6 @@ self.MonacoEnvironment = {
 }
 
 typescript.typescriptDefaults.setEagerModelSync(true)
+
+registerLatex()
+registerMermaid()

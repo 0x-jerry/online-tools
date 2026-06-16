@@ -6,13 +6,10 @@ import 'katex/dist/katex.min.css'
 import 'normalize.css'
 import './styles/global.less'
 import 'uno.css'
-import { registerLatex } from '@/components/monaco-editor/latex.lang'
 import { Buffer } from 'buffer'
 
 // @ts-ignore polyfill
 window.Buffer = Buffer
-
-registerLatex()
 
 const app = createApp(App)
 
