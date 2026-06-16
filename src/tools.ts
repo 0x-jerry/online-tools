@@ -41,6 +41,11 @@ export const allTools: ToolManifest[] = [
     route: '/mermaid',
     icon: 'i-carbon:flow',
   },
+  {
+    name: 'UUID Generator',
+    route: '/uuid',
+    icon: 'i-carbon:fingerprint-recognition',
+  },
 ]
 
 allTools.forEach((item, idx) => {

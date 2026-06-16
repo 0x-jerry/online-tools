@@ -66,6 +66,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/uuid/': RouteRecordInfo<
+      '/uuid/',
+      '/uuid',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -114,6 +121,14 @@ declare module 'vue-router/auto-routes' {
     'src/pages/mermaid/index.vue': {
       routes:
         | '/mermaid/'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/uuid/index.vue': {
+      routes:
+        | '/uuid/'
       views:
         | never
       pathParamNames:

@@ -14,12 +14,14 @@
         "mermaid": "^11.15.0",
         "monaco-editor": "^0.55.1",
         "normalize.css": "^8.0.1",
+        "uuid": "^14.0.0",
         "vue": "^3.5.38",
         "vue-router": "^5.1.0",
       },
       "devDependencies": {
         "@iconify/json": "^2.2.486",
         "@types/node": "^25.9.3",
+        "@types/uuid": "^11.0.0",
         "@vitejs/plugin-vue": "^6.0.7",
         "less": "^4.6.4",
         "marked": "^18.0.5",
@@ -235,6 +237,8 @@
     "@types/node": ["@types/node@25.9.3", "https://registry.npmmirror.com/@types/node/-/node-25.9.3.tgz", { "dependencies": { "undici-types": ">=7.24.0 <7.24.7" } }, "sha512-603BddQMv3pUcr4U2dhujk83N2tTDVr/34wII2B6bJy6g+8WD6yUb11jszNs0gdi4PesVWl7ABt8nYMVpnLUcg=="],
 
     "@types/trusted-types": ["@types/trusted-types@2.0.7", "https://registry.npmmirror.com/@types/trusted-types/-/trusted-types-2.0.7.tgz", {}, "sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw=="],
+
+    "@types/uuid": ["@types/uuid@11.0.0", "https://registry.npmmirror.com/@types/uuid/-/uuid-11.0.0.tgz", { "dependencies": { "uuid": "*" } }, "sha512-HVyk8nj2m+jcFRNazzqyVKiZezyhDKrGUA3jlEcg/nZ6Ms+qHwocba1Y/AaVaznJTAM9xpdFSh+ptbNrhOGvZA=="],
 
     "@types/web-bluetooth": ["@types/web-bluetooth@0.0.21", "https://registry.npmmirror.com/@types/web-bluetooth/-/web-bluetooth-0.0.21.tgz", {}, "sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA=="],
 
