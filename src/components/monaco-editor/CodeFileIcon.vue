@@ -31,6 +31,6 @@ const icon = computed(() => {
 
 <style lang="less" scoped>
 .code-file-icon {
-  @apply c-gray-5 text-base;
+  --uno: c-gray-5 text-base;
 }
 </style>

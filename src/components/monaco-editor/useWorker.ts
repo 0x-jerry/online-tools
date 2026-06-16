@@ -1,4 +1,4 @@
-import { languages } from 'monaco-editor'
+import { typescript } from 'monaco-editor'
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 
 self.MonacoEnvironment = {
@@ -31,4 +31,4 @@ self.MonacoEnvironment = {
   },
 }
 
-languages.typescript.typescriptDefaults.setEagerModelSync(true)
+typescript.typescriptDefaults.setEagerModelSync(true)

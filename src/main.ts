@@ -1,13 +1,13 @@
 import { type Plugin, createApp } from 'vue'
 import App from './App.vue'
 
-import 'github-markdown-css'
+import 'github-markdown-css/github-markdown.css'
 import 'normalize.css'
 import './styles/global.less'
 import 'uno.css'
 import { Buffer } from 'buffer'
 
-// polyfill
+// @ts-ignore polyfill
 window.Buffer = Buffer
 
 const app = createApp(App)

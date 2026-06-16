@@ -1,6 +1,6 @@
-import generatedRoutes from 'virtual:generated-pages'
 import { type Plugin, reactive } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { routes as generatedRoutes, handleHotUpdate } from 'vue-router/auto-routes'
 
 const _state = reactive({
   nextLocation: '',
@@ -30,4 +30,8 @@ export const install: Plugin = (app) => {
   })
 
   app.use(router)
+  
+  if (import.meta.hot) {
+    handleHotUpdate(router)
+  }
 }

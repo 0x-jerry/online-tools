@@ -41,7 +41,7 @@ function isActive(tool: ToolManifest) {
 
 <style lang="less" scoped>
 .search-item {
-  @apply flex items-center;
+  --uno: flex items-center;
 
   .search-input {
     border: none;
@@ -51,25 +51,25 @@ function isActive(tool: ToolManifest) {
 }
 
 .items {
-  @apply flex flex-col;
+  --uno: flex flex-col;
 }
 
 .tool-item {
-  @apply flex items-center py-2 px-2;
-  @apply bg-white cursor-pointer;
-  @apply c-gray-6;
+  --uno: flex items-center py-2 px-2;
+  --uno: bg-white cursor-pointer;
+  --uno: c-gray-6;
 
   &:hover {
-    @apply bg-light-1;
+    --uno: bg-light-1;
   }
 
   &.is-active {
-    @apply bg-light-6;
+    --uno: bg-light-6;
   }
 
   .icon {
-    @apply text-lg;
-    @apply mr-1;
+    --uno: text-lg;
+    --uno: mr-1;
   }
 }
 </style>

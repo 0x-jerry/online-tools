@@ -25,7 +25,7 @@ import { routeState } from './modules/router'
 .sidebar {
   width: 220px;
 
-  @apply border-(0 r solid gray-2);
+  --uno: border-(0 r solid gray-2);
 }
 
 .loading {
@@ -34,8 +34,8 @@ import { routeState } from './modules/router'
   left: 0;
   z-index: 999;
 
-  @apply size-full flex items-center justify-center;
-  @apply bg-gray-2 bg-op-50;
-  @apply backdrop-blur-2;
+  --uno: size-full flex items-center justify-center;
+  --uno: bg-gray-2 bg-op-50;
+  --uno: backdrop-blur-2;
 }
 </style>

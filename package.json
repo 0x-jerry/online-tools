@@ -19,29 +19,25 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@0x-jerry/utils": "^2.4.3",
-    "@0x-jerry/vue-kit": "^2.0.4",
-    "@vueuse/core": "^10.11.0",
+    "@0x-jerry/utils": "^6.4.2",
+    "@0x-jerry/vue-kit": "^2.3.1",
+    "@vueuse/core": "^14.3.0",
     "buffer": "^6.0.3",
-    "github-markdown-css": "^5.6.1",
-    "monaco-editor": "^0.50.0",
+    "github-markdown-css": "^5.9.0",
+    "monaco-editor": "^0.55.1",
     "normalize.css": "^8.0.1",
-    "vue": "^3.4.33",
-    "vue-router": "^4.4.0",
-    "vuedraggable": "^4.1.0"
+    "vue": "^3.5.38",
+    "vue-router": "^5.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@iconify/json": "^2.2.230",
-    "@types/node": "^20.14.11",
-    "@vitejs/plugin-vue": "^5.0.5",
-    "less": "^4.2.0",
-    "marked": "^13.0.2",
-    "typescript": "^5.5.3",
-    "unocss": "0.61.5",
-    "vite": "^5.3.4",
-    "vite-plugin-mkcert": "1.17.5",
-    "vite-plugin-pages": "^0.32.3",
-    "vitest": "^2.0.3"
+    "@iconify/json": "^2.2.486",
+    "@types/node": "^25.9.3",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "less": "^4.6.4",
+    "marked": "^18.0.5",
+    "typescript": "^6.0.3",
+    "unocss": "66.7.2",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
   }
 }

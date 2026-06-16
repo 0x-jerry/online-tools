@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import CodeEditor from '@/components/monaco-editor/CodeEditor.vue'
 import { useInstance } from '@/composables/useInstance'
-import { languages } from 'monaco-editor'
+import { json } from 'monaco-editor'
 import { onUnmounted, reactive, watch } from 'vue'
 
 const schemaEditor = useInstance(CodeEditor)
@@ -36,7 +36,7 @@ watch(
       return
     }
 
-    languages.json.jsonDefaults.setDiagnosticsOptions({
+    json.jsonDefaults.setDiagnosticsOptions({
       enableSchemaRequest: true,
       validate: true,
       schemas,
@@ -45,7 +45,7 @@ watch(
 )
 
 onUnmounted(() => {
-  languages.json.jsonDefaults.setDiagnosticsOptions({})
+  json.jsonDefaults.setDiagnosticsOptions({})
 })
 </script>
 

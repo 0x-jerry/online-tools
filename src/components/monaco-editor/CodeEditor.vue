@@ -108,7 +108,7 @@ defineExpose({
 
 <style lang="less" scoped>
 .code-editor {
-  @apply size-full;
+  --uno: size-full;
   position: relative;
 }
 
@@ -119,6 +119,6 @@ defineExpose({
 }
 
 .title {
-  @apply flex items-center gap-2;
+  --uno: flex items-center gap-2;
 }
 </style>

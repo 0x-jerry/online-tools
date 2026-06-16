@@ -3,7 +3,7 @@ import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
-import Pages from 'vite-plugin-pages'
+import router from 'vue-router/vite'
 import { DocsBlock } from './vite/DocsBlock'
 
 // https://vitejs.dev/config/
@@ -21,7 +21,7 @@ export default defineConfig(() => {
       DocsBlock(),
 
       // https://github.com/hannoeru/vite-plugin-pages
-      Pages({
+      router({
         exclude: ['**/components/*.vue', '**/*.ts'],
       }),
 
