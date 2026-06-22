@@ -46,6 +46,11 @@ export const allTools: ToolManifest[] = [
     route: '/uuid',
     icon: 'i-carbon:fingerprint-recognition',
   },
+  {
+    name: 'Num Convert',
+    route: '/num-convert',
+    icon: 'i-carbon:calculator',
+  },
 ]
 
 allTools.forEach((item, idx) => {

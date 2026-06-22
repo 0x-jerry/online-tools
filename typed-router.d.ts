@@ -66,6 +66,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/num-convert/': RouteRecordInfo<
+      '/num-convert/',
+      '/num-convert',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/uuid/': RouteRecordInfo<
       '/uuid/',
       '/uuid',
@@ -121,6 +128,14 @@ declare module 'vue-router/auto-routes' {
     'src/pages/mermaid/index.vue': {
       routes:
         | '/mermaid/'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/num-convert/index.vue': {
+      routes:
+        | '/num-convert/'
       views:
         | never
       pathParamNames:
