@@ -1,0 +1,1 @@
+import{d as e,l as t,t as n,v as r}from"./index-zg1C8AJP.js";var i={},a={class:`px-2`};function o(n,i){return r(),e(`div`,a,[...i[0]||=[t(`h1`,null,`Welcome to Online Tools!`,-1)]])}var s=n(i,[[`render`,o]]);export{s as default};
