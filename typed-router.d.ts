@@ -38,6 +38,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/comfyui-metadata/': RouteRecordInfo<
+      '/comfyui-metadata/',
+      '/comfyui-metadata',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/json-schema/validator': RouteRecordInfo<
       '/json-schema/validator',
       '/json-schema/validator',
@@ -96,6 +103,14 @@ declare module 'vue-router/auto-routes' {
     'src/pages/index.vue': {
       routes:
         | '/'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/comfyui-metadata/index.vue': {
+      routes:
+        | '/comfyui-metadata/'
       views:
         | never
       pathParamNames:

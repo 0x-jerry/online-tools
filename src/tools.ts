@@ -51,6 +51,11 @@ export const allTools: ToolManifest[] = [
     route: '/num-convert',
     icon: 'i-carbon:calculator',
   },
+  {
+    name: 'ComfyUI Metadata',
+    route: '/comfyui-metadata',
+    icon: 'i-carbon:image-search',
+  },
 ]
 
 allTools.forEach((item, idx) => {
