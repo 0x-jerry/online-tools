@@ -1,0 +1,1 @@
+function e(e){return new Worker(``+new URL(`json.worker-D_Dqrls5.js`,import.meta.url).href,{name:e?.name})}export{e as default};

@@ -1,0 +1,1 @@
+import{r as e}from"./index-DliQDO-H.js";import{r as t}from"./dist-DPKBy951.js";function n(n,r){let i=`tool-state:${e().path}:${r??``}`;return t(i,n)}export{n as t};
