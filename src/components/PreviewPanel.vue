@@ -121,6 +121,7 @@ defineExpose({ reset, state })
       <slot />
     </div>
     <div class="absolute top-2 right-2 flex gap-1 bg-white/80 rounded shadow-sm">
+      <slot name="actions" />
       <button class="btn" title="Zoom in" @click="zoomIn">+</button>
       <button class="btn" title="Zoom out" @click="zoomOut">&minus;</button>
       <button class="btn" title="Reset" @click="reset">&#8634;</button>

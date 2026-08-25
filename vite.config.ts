@@ -4,7 +4,7 @@ import Unocss from 'unocss/vite'
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 import router from 'vue-router/vite'
-import { DocsBlock } from './vite/DocsBlock'
+import { DocsBlock } from './vite/DocsBlock.ts'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
@@ -12,7 +12,7 @@ export default defineConfig(() => {
     base: './',
     resolve: {
       alias: {
-        '@/': `${path.resolve(__dirname, 'src')}/`,
+        '@/': `${path.resolve(import.meta.dirname, 'src')}/`,
       },
     },
     plugins: [

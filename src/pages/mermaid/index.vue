@@ -1,19 +1,24 @@
 <script lang="ts" setup>
 import CodeEditor from '@/components/monaco-editor/CodeEditor.vue'
+import CopyIcon from '@/components/CopyIcon.vue'
 import PreviewPanel from '@/components/PreviewPanel.vue'
 import { useToolStorage } from '@/composables/useToolStorage'
 import { watchDebounced } from '@vueuse/core'
 import mermaid from 'mermaid'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { defaultSource } from './_defaultSource'
+import { downloadSvg, downloadPng, copyPngToClipboard } from './_utils'
+import { escapeHtml } from '@/utils'
 
 const source = useToolStorage(defaultSource)
 const html = ref('')
 const previewRef = ref<InstanceType<typeof PreviewPanel>>()
 const prevSource = ref('')
 
+const hasDiagram = computed(() => html.value.includes('<svg'))
+
 onMounted(() => {
-  mermaid.initialize({ startOnLoad: false })
+  mermaid.initialize({ startOnLoad: false, htmlLabels: false })
 })
 
 watchDebounced(
@@ -46,15 +51,16 @@ watchDebounced(
   { immediate: true, debounce: 300 },
 )
 
-function escapeHtml(str: string) {
-  const map: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;',
-  }
-  return str.replace(/[&<>"']/g, (c) => map[c])
+function downloadSvgFile() {
+  downloadSvg(html.value, 'diagram.svg')
+}
+
+function downloadPngFile() {
+  downloadPng(html.value, 'diagram.png')
+}
+
+function copyPng() {
+  return copyPngToClipboard(html.value)
 }
 </script>
 
@@ -65,10 +71,60 @@ function escapeHtml(str: string) {
     </div>
     <div class="flex-1 bg-light-1">
       <PreviewPanel ref="previewRef">
+        <template #actions>
+          <CopyIcon
+            title="Copy diagram as PNG"
+            :copy="copyPng"
+            :disabled="!hasDiagram"
+          />
+          <button
+            class="dl-btn"
+            title="Download as SVG"
+            :disabled="!hasDiagram"
+            @click="downloadSvgFile"
+          >
+            <i class="i-carbon:svg"></i>
+          </button>
+          <button
+            class="dl-btn"
+            title="Download as PNG"
+            :disabled="!hasDiagram"
+            @click="downloadPngFile"
+          >
+            <i class="i-carbon:png"></i>
+          </button>
+        </template>
         <div v-html="html" />
       </PreviewPanel>
     </div>
   </div>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.dl-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #555;
+  border-radius: 4px;
+
+  i {
+    font-size: 14px;
+  }
+
+  &:hover:not(:disabled) {
+    background: #00000010;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+</style>
